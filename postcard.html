@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.postcard {
+			position: absolute;
+			width: 500px;
+			height: 300px;
+			border-radius: 6px;
+			border-style: solid;
+		  	border-color: blue;
+		  	border-width: 6px 6px;
+		  	display: flex;
+
+		};
+	</style>
+</head>
+	<body>
+		<div class="postcard">
+			<img src=" bird.jpg" class="post_image" style="width: 50%;">
+			<div id="post_message">
+				
+			</div>
+			<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+			<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+			<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+			<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+		</div>
+		<script type="text/babel">
+		const rootElement = document.getElementById('post_message');
+
+		const props = {
+			children : "From: Jose Mercado",
+			className: "container",
+		}
+
+		const Box = (props) => {
+			return (
+				<div className="container" {...props} />
+			)
+		}
+
+		Box.propTypes = {
+			greeting: PropTypes.string,
+		}
+
+		const elementJSX = (
+			<React.Fragment>
+				{Box(props)}
+				<Box className="container">
+					<Box className="container"></Box>
+				</Box>
+			</React.Fragment>
+		);
+
+		ReactDOM.render(elementJSX, rootElement);
+	</script>
+	</body>
+</html>
